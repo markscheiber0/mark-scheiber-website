@@ -1,8 +1,8 @@
 # Mark Scheiber
 
-> Independent design & development studio in Boise, Idaho. Mark Scheiber designs and builds futuristic, beautifully-engineered websites and mobile apps for businesses that want to stand apart.
+> Independent design & development studio in Boise, Idaho. Mark Scheiber designs and builds futuristic, beautifully engineered websites and mobile apps for businesses that want to stand apart.
 
-Contact: markscheiber0@gmail.com
+Contact: mark.scheiber@scheiberintelligence.com
 Location: Boise, Idaho — available worldwide
 
 ## Sections
@@ -12,20 +12,20 @@ Location: Boise, Idaho — available worldwide
 ## Services
 
 - **Websites** — Marketing sites, portfolios, and storefronts engineered for speed, SEO, and a story worth telling. Custom design, responsive & accessible, CMS or static.
-- **Mobile Apps** — iOS and Android applications that feel native, scale gracefully, and look unmistakable. iOS & Android, cross-platform, app store launch.
+- **Mobile Apps** — iOS and Android applications that feel native, scale gracefully, and look unmistakable. iOS & Android, cross platform, app store launch.
 - **Design Systems** — Brand-aligned UI systems and motion language so every screen feels like the same product. Identity & UI, component libraries, motion design.
 
 ## Selected Work
 
-- **AI-Powered Calorie Tracker** (Mobile · AI) — Just tell Siri what you ate; it logs and populates the dashboard automatically.
-- **Ski Resort Companion** (Mobile App) — Live cameras, lift status, weather, and forecasts in one mobile app for the mountain.
-- **Project Three** (Web · E-commerce) — Coming soon.
+- **Business Websites** (Web · Design) — Professional websites built for small and growing businesses.
+- **AI Powered Calorie Tracker** (Mobile · AI) — Just tell Siri what you ate; it logs and populates the dashboard automatically.
+- **Business AI Automation** (AI · Automation) — Helping businesses put AI to work — automating tasks, saving time, and staying ahead of the curve.
 
 ## About
 
-Based in Boise, Idaho, Mark helps businesses ship digital products that look and feel like they're from the future — without sacrificing the fundamentals: speed, clarity, and reliability. A studio of one, built on craft. 1:1 direct collaboration with no middlemen, end-to-end from design through build, launch, and support.
+Based in Boise, Idaho, Mark helps businesses ship digital products that look and feel like they're from the future — without sacrificing the fundamentals: speed, clarity, and reliability. A studio of one, built on craft. 1:1 direct collaboration with no middlemen, end to end from design through build, launch, and support.
 
 ## Contact
 
-- Email: markscheiber0@gmail.com
+- Email: mark.scheiber@scheiberintelligence.com
 - Location: Boise, Idaho · Available worldwide

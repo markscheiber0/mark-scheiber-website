@@ -154,7 +154,9 @@ requestAnimationFrame(draw);
 
 /* ===========================================================
    GRAND TETONS — voxel mountain range builds as you scroll
+   Set VOXEL_ENABLED = true to re-enable.
    =========================================================== */
+const VOXEL_ENABLED = false;
 // Jagged silhouette of the Teton range — 20w x 30h.
 // Peaks (left → right): Teewinot, Mt Owen, Grand Teton (tallest),
 // Middle Teton, South Teton, settling into forested valley floor.
@@ -194,7 +196,7 @@ const GRID_W = 28, GRID_H = 30, DEPTH = 3;
 
 const legoCanvas = document.createElement('canvas');
 legoCanvas.id = 'lego-canvas';
-document.body.appendChild(legoCanvas);
+if(VOXEL_ENABLED) document.body.appendChild(legoCanvas);
 const lctx = legoCanvas.getContext('2d');
 
 const TILE_W = 7, TILE_H = 3.5, BLOCK_H = 7;
@@ -353,8 +355,10 @@ function updateLegoProgress(){
   }
   visibleCount = target;
 }
-addEventListener('scroll', updateLegoProgress, { passive:true });
-lenis.on('scroll', updateLegoProgress);
+if(VOXEL_ENABLED){
+  addEventListener('scroll', updateLegoProgress, { passive:true });
+  lenis.on('scroll', updateLegoProgress);
+}
 
 function renderLego(now){
   lctx.clearRect(0,0,legoCanvas.width,legoCanvas.height);
@@ -366,5 +370,7 @@ function renderLego(now){
   }
   requestAnimationFrame(renderLego);
 }
-requestAnimationFrame(renderLego);
-updateLegoProgress();
+if(VOXEL_ENABLED){
+  requestAnimationFrame(renderLego);
+  updateLegoProgress();
+}

@@ -93,12 +93,24 @@ img{max-width:100%;display:block}
 .work-meta p{color:var(--ink-dim);font-size:14px}
 
 /* ---------- About ---------- */
-.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
-.about-lead{font-size:clamp(18px,1.8vw,24px);line-height:1.5;color:var(--ink)}
-.about-stats{display:flex;flex-direction:column;gap:24px}
-.about-stats div{padding:24px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
-.about-stats strong{font-family:'Space Grotesk';font-size:28px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-bio{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;margin-bottom:80px}
+.about-photo-wrap{border-radius:20px;padding:2px;background:var(--grad);flex-shrink:0}
+.about-photo{width:100%;border-radius:18px;display:block;object-fit:cover;aspect-ratio:3/4;background:var(--bg-2)}
+.about-name{font-family:'Space Grotesk';font-size:clamp(26px,2.8vw,38px);font-weight:700;margin-bottom:16px}
+.about-lead{font-size:clamp(16px,1.5vw,19px);line-height:1.65;color:var(--ink-dim);margin-bottom:36px}
+.about-stats{display:flex;flex-direction:column}
+.about-stats div{padding:18px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.about-stats strong{font-family:'Space Grotesk';font-size:26px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .about-stats span{color:var(--ink-dim);font-size:14px}
+.about-education{border-top:1px solid var(--line);padding-top:60px}
+.about-education .eyebrow{margin-bottom:32px}
+.about-degrees{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.degree-card{padding:32px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.degree-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:10px}
+.degree-title{font-family:'Space Grotesk';font-size:20px;font-weight:700;color:var(--ink)}
+.degree-badge{font-family:'Space Grotesk';font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border-radius:99px;border:1px solid var(--line);color:var(--ink-dim);white-space:nowrap;flex-shrink:0}
+.degree-badge--active{border-color:var(--cyan);color:var(--cyan)}
+.degree-sub{color:var(--ink-dim);font-size:15px}
 
 /* ---------- Contact ---------- */
 .contact{text-align:center;padding-bottom:200px}
@@ -126,7 +138,9 @@ img{max-width:100%;display:block}
   .nav nav{gap:18px}
   .section{padding:120px 22px}
   .cards,.work{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-bio{grid-template-columns:1fr;gap:40px}
+  .about-photo-wrap{max-width:200px}
+  .about-degrees{grid-template-columns:1fr}
   .hero{padding:140px 22px 80px}
   .footer{flex-direction:column;gap:8px;text-align:center}
 }
