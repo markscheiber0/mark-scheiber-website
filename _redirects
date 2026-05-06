@@ -1,0 +1,18 @@
+# Serve llms.txt to known AI crawlers when they request the homepage.
+# Humans (and search engines like Googlebot) keep getting index.html.
+# 200 = rewrite (URL stays /), not a redirect.
+
+/  /llms.txt  200!  User-Agent=GPTBot
+/  /llms.txt  200!  User-Agent=ChatGPT-User
+/  /llms.txt  200!  User-Agent=OAI-SearchBot
+/  /llms.txt  200!  User-Agent=ClaudeBot
+/  /llms.txt  200!  User-Agent=Claude-Web
+/  /llms.txt  200!  User-Agent=Claude-User
+/  /llms.txt  200!  User-Agent=anthropic-ai
+/  /llms.txt  200!  User-Agent=PerplexityBot
+/  /llms.txt  200!  User-Agent=Perplexity-User
+/  /llms.txt  200!  User-Agent=Google-Extended
+/  /llms.txt  200!  User-Agent=CCBot
+/  /llms.txt  200!  User-Agent=Applebot-Extended
+/  /llms.txt  200!  User-Agent=Bytespider
+/  /llms.txt  200!  User-Agent=Meta-ExternalAgent

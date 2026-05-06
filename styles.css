@@ -1,0 +1,132 @@
+/* ---------- Prism palette ---------- */
+:root{
+  --bg:#07060d;
+  --bg-2:#0d0b18;
+  --ink:#f5f3ff;
+  --ink-dim:#a9a3c4;
+  --line:rgba(255,255,255,.08);
+
+  --magenta:#ff3ea5;
+  --violet:#7a5cff;
+  --cyan:#28e0ff;
+  --lime:#9dff5b;
+  --amber:#ffb547;
+
+  --grad: linear-gradient(100deg,#ff3ea5 0%,#7a5cff 28%,#28e0ff 55%,#9dff5b 80%,#ffb547 100%);
+  --maxw: 1240px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+body{line-height:1.55;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- Background layers ---------- */
+#prism-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-2;opacity:.85}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  padding:22px 40px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,6,13,.4);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk';font-weight:700;letter-spacing:.02em}
+.brand-mark{width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 24px #7a5cff80}
+.nav nav{display:flex;gap:32px;font-size:14px;color:var(--ink-dim)}
+.nav nav a{transition:color .3s}
+.nav nav a:hover{color:var(--ink)}
+.cta-link{color:var(--ink) !important;padding:8px 18px;border:1px solid var(--line);border-radius:99px}
+.cta-link:hover{background:rgba(255,255,255,.05)}
+
+/* ---------- Shared ---------- */
+.section{max-width:var(--maxw);margin:0 auto;padding:160px 40px;position:relative}
+.section-head{margin-bottom:80px}
+.eyebrow{font-family:'Space Grotesk';font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:18px}
+.section-title{font-family:'Space Grotesk';font-size:clamp(40px,6vw,84px);line-height:1.02;font-weight:700;letter-spacing:-.02em}
+.gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.btn{display:inline-block;padding:16px 30px;border-radius:99px;font-family:'Space Grotesk';font-weight:500;font-size:15px;letter-spacing:.01em;transition:transform .3s,box-shadow .3s,background .3s}
+.btn-primary{background:var(--grad);color:#0a0814;box-shadow:0 12px 40px -10px #7a5cff80}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px #ff3ea580}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{background:rgba(255,255,255,.05)}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;position:relative;max-width:var(--maxw);margin:0 auto}
+.hero-inner{max-width:980px}
+.hero-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(48px,9vw,128px);line-height:.95;letter-spacing:-.035em;margin:24px 0 32px}
+.hero-title .line{display:block;overflow:hidden}
+.hero-sub{font-size:clamp(16px,1.4vw,20px);max-width:620px;color:var(--ink-dim);margin-bottom:42px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.scroll-cue{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-cue span{width:1px;height:42px;background:linear-gradient(var(--ink),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.5)}}
+
+/* ---------- Services ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{padding:40px 32px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));backdrop-filter:blur(8px);transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .4s,background .4s;will-change:transform;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s}
+.card:hover::before{opacity:.7}
+.card:hover{transform:translateY(-6px)}
+.card-num{font-family:'Space Grotesk';font-size:12px;letter-spacing:.2em;color:var(--ink-dim);margin-bottom:24px}
+.card h3{font-family:'Space Grotesk';font-size:26px;margin-bottom:14px}
+.card p{color:var(--ink-dim);margin-bottom:22px;font-size:15px}
+.card ul{list-style:none;font-size:13px;color:var(--ink-dim)}
+.card ul li{padding:8px 0;border-top:1px solid var(--line)}
+
+/* ---------- Work ---------- */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-item{display:block;border-radius:22px;overflow:hidden;border:1px solid var(--line);transition:transform .5s}
+.work-item:hover{transform:translateY(-6px)}
+.work-thumb{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;transition:transform .8s}
+.work-item:hover .work-thumb{transform:scale(1.05)}
+.work-thumb-1{background:radial-gradient(circle at 30% 30%,#ff3ea5,transparent 60%),radial-gradient(circle at 70% 70%,#7a5cff,#0a0814)}
+.work-thumb-2{background:radial-gradient(circle at 60% 30%,#28e0ff,transparent 60%),radial-gradient(circle at 30% 70%,#7a5cff,#0a0814)}
+.work-thumb-3{background:radial-gradient(circle at 50% 50%,#9dff5b,transparent 55%),radial-gradient(circle at 80% 20%,#ffb547,#0a0814)}
+.work-meta{padding:22px;background:rgba(7,6,13,.6)}
+.work-meta span{font-family:'Space Grotesk';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+.work-meta h3{font-family:'Space Grotesk';font-size:22px;margin:8px 0 4px}
+.work-meta p{color:var(--ink-dim);font-size:14px}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}
+.about-lead{font-size:clamp(18px,1.8vw,24px);line-height:1.5;color:var(--ink)}
+.about-stats{display:flex;flex-direction:column;gap:24px}
+.about-stats div{padding:24px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.about-stats strong{font-family:'Space Grotesk';font-size:28px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about-stats span{color:var(--ink-dim);font-size:14px}
+
+/* ---------- Contact ---------- */
+.contact{text-align:center;padding-bottom:200px}
+.contact-inner{max-width:780px;margin:0 auto}
+.contact-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(48px,8vw,112px);line-height:.95;letter-spacing:-.03em;margin:18px 0 28px}
+.contact-sub{color:var(--ink-dim);font-size:18px;margin-bottom:36px}
+.contact-email{display:inline-block;font-family:'Space Grotesk';font-size:clamp(20px,2.4vw,32px);padding:18px 36px;border:1px solid var(--line);border-radius:99px;transition:all .4s;position:relative}
+.contact-email:hover{border-color:transparent;background:var(--grad);color:#0a0814}
+.contact-loc{color:var(--ink-dim);margin-top:24px;font-size:14px;letter-spacing:.05em}
+
+/* ---------- Footer ---------- */
+.footer{display:flex;justify-content:space-between;padding:30px 40px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim);font-family:'Space Grotesk'}
+
+/* ---------- Lego Thinker ---------- */
+#lego-canvas{position:fixed;left:24px;top:50%;transform:translateY(-50%);z-index:5;pointer-events:none;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+@media (max-width:1100px){#lego-canvas{display:none}}
+
+/* ---------- Reveal animation base ---------- */
+.reveal{opacity:0;transform:translateY(40px)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .nav{padding:18px 20px}
+  .nav nav{gap:18px}
+  .section{padding:120px 22px}
+  .cards,.work{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .hero{padding:140px 22px 80px}
+  .footer{flex-direction:column;gap:8px;text-align:center}
+}
