@@ -86,7 +86,7 @@ img{max-width:100%;display:block}
 .work-item:hover .work-thumb{transform:scale(1.05)}
 .work-thumb-1{background:radial-gradient(circle at 30% 30%,#ff3ea5,transparent 60%),radial-gradient(circle at 70% 70%,#7a5cff,#0a0814)}
 .work-thumb-2{background:radial-gradient(circle at 60% 30%,#28e0ff,transparent 60%),radial-gradient(circle at 30% 70%,#7a5cff,#0a0814)}
-.work-thumb-3{background:radial-gradient(circle at 50% 50%,#9dff5b,transparent 55%),radial-gradient(circle at 80% 20%,#ffb547,#0a0814)}
+.work-thumb-3{background:radial-gradient(circle at 35% 70%,#1a4a1e,transparent 60%),radial-gradient(circle at 72% 22%,#9dff5b,transparent 52%),radial-gradient(circle at 20% 20%,#28e0ff30,transparent 45%),linear-gradient(180deg,#0d1f0e,#0a0814)}
 .work-meta{padding:22px;background:rgba(7,6,13,.6)}
 .work-meta span{font-family:'Space Grotesk';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
 .work-meta h3{font-family:'Space Grotesk';font-size:22px;margin:8px 0 4px}
