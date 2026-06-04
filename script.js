@@ -28,7 +28,8 @@ heroTl
   .to('.hero .eyebrow.reveal', { opacity:1, y:0, duration:.8 })
   .to('.hero-title .line.reveal', { opacity:1, y:0, duration:1.1, stagger:.12 }, '-=.4')
   .to('.hero-sub.reveal', { opacity:1, y:0, duration:.9 }, '-=.6')
-  .to('.hero-actions.reveal', { opacity:1, y:0, duration:.8 }, '-=.6');
+  .to('.hero-actions.reveal', { opacity:1, y:0, duration:.8 }, '-=.6')
+  .to('.hero-photo-wrap.reveal', { opacity:1, y:0, duration:1.0 }, '-=.9');
 
 /* ---------- Section reveals ---------- */
 gsap.utils.toArray('.section-head').forEach(el => {
@@ -374,3 +375,107 @@ if(VOXEL_ENABLED){
   requestAnimationFrame(renderLego);
   updateLegoProgress();
 }
+
+/* ===========================================================
+   STICK MEN — Link-style sword fight drifting across the nav
+   =========================================================== */
+(function stickMenFight() {
+  const stickMen = document.querySelector('.stick-men');
+  if (!stickMen) return;
+
+  const sm1SA = document.getElementById('sm1-sword-arm');
+  const sm1BA = document.getElementById('sm1-l-arm');
+  const sm1LL = document.getElementById('sm1-l-leg');
+  const sm1RL = document.getElementById('sm1-r-leg');
+  const sm2SA = document.getElementById('sm2-sword-arm');
+  const sm2BA = document.getElementById('sm2-r-arm');
+  const sm2LL = document.getElementById('sm2-l-leg');
+  const sm2RL = document.getElementById('sm2-r-leg');
+
+  if (!sm1SA || !sm2SA) return;
+
+  const SH = '14 15'; // shoulder — SVG origin for arm rotation
+  const HP = '14 24'; // hip     — SVG origin for leg rotation
+
+  // Leg walk cycle — opposing phase between front/back leg
+  gsap.to([sm1LL, sm2LL], {
+    rotation: 22, svgOrigin: HP, duration: 0.30,
+    repeat: -1, yoyo: true, ease: 'power1.inOut'
+  });
+  gsap.to([sm1RL, sm2RL], {
+    rotation: -22, svgOrigin: HP, duration: 0.30,
+    repeat: -1, yoyo: true, ease: 'power1.inOut', delay: 0.30
+  });
+
+  // Back arm — combat sway for balance
+  gsap.to(sm1BA, { rotation: -13, svgOrigin: SH, duration: 0.62, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to(sm2BA, { rotation:  13, svgOrigin: SH, duration: 0.62, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+  function getMaxX() {
+    const nav      = document.querySelector('.nav');
+    const navLinks = document.querySelector('.nav > nav');
+    const bg       = document.querySelector('.brand-group');
+    if (!nav || !navLinks || !bg) return 260;
+    return Math.max(80, nav.offsetWidth - bg.offsetWidth - navLinks.offsetWidth - 90);
+  }
+
+  const STEP = 14;
+  let posX = 0, exchNum = 0;
+
+  function exchange() {
+    const maxX = getMaxX();
+
+    if (posX >= maxX - STEP) {
+      // Sprint off-screen right, snap back to start
+      gsap.to(stickMen, {
+        x: posX + 100, duration: 0.38, ease: 'power2.in',
+        onComplete: () => {
+          posX = 0; exchNum = 0;
+          gsap.set(stickMen, { x: 0 });
+          gsap.delayedCall(0.12, exchange);
+        }
+      });
+      return;
+    }
+
+    const tl = gsap.timeline({ onComplete: exchange });
+    const type = exchNum % 4;
+
+    if (type === 0) {
+      // Man 1 direct slash → man 2 blocks
+      tl.to(sm1SA, { rotation:  46, svgOrigin: SH, duration: 0.16, ease: 'power4.out' })
+        .to(sm2SA, { rotation:  24, svgOrigin: SH, duration: 0.14, ease: 'power2.out' }, '-=0.04')
+        .to([sm1SA, sm2SA], { rotation: 0, duration: 0.28, ease: 'back.out(1.6)' }, '+=0.04')
+        .to(stickMen, { x: `+=${STEP}`, duration: 0.36, ease: 'power1.inOut' }, '-=0.30');
+
+    } else if (type === 1) {
+      // Man 2 overhead strike → man 1 parries up
+      tl.to(sm2SA, { rotation: -52, svgOrigin: SH, duration: 0.16, ease: 'power4.out' })
+        .to(sm1SA, { rotation: -22, svgOrigin: SH, duration: 0.14, ease: 'power2.out' }, '-=0.04')
+        .to([sm1SA, sm2SA], { rotation: 0, duration: 0.28, ease: 'back.out(1.6)' }, '+=0.04')
+        .to(stickMen, { x: `+=${STEP}`, duration: 0.36, ease: 'power1.inOut' }, '-=0.30');
+
+    } else if (type === 2) {
+      // Feint: man 1 fakes high, pulls, then commits low
+      tl.to(sm1SA, { rotation: 20, svgOrigin: SH, duration: 0.10, ease: 'power3.out' })
+        .to(sm1SA, { rotation:  7, svgOrigin: SH, duration: 0.09, ease: 'power2.in' })
+        .to(sm1SA, { rotation: 58, svgOrigin: SH, duration: 0.14, ease: 'power4.out' })
+        .to(sm2SA, { rotation: 26, svgOrigin: SH, duration: 0.13, ease: 'power2.out' }, '-=0.07')
+        .to([sm1SA, sm2SA], { rotation: 0, duration: 0.30, ease: 'back.out(1.5)' }, '+=0.04')
+        .to(stickMen, { x: `+=${STEP}`, duration: 0.36, ease: 'power1.inOut' }, '-=0.26');
+
+    } else {
+      // Simultaneous clash — both strike at once, elastic spring-back
+      tl.to(sm1SA, { rotation:  44, svgOrigin: SH, duration: 0.15, ease: 'power4.out' })
+        .to(sm2SA, { rotation: -48, svgOrigin: SH, duration: 0.15, ease: 'power4.out' }, '<')
+        .to([sm1SA, sm2SA], { rotation: 0, duration: 0.34, ease: 'elastic.out(1.3, 0.38)' }, '+=0.02')
+        .to(stickMen, { x: `+=${STEP}`, duration: 0.40, ease: 'power1.inOut' }, '-=0.36');
+    }
+
+    posX  += STEP;
+    exchNum++;
+  }
+
+  // Start after the hero entrance settles
+  gsap.delayedCall(1.2, exchange);
+})();

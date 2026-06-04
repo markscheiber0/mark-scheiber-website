@@ -34,6 +34,9 @@ img{max-width:100%;display:block}
 /* ---------- Nav ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
   padding:22px 40px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,6,13,.4);border-bottom:1px solid var(--line)}
+.brand-group{position:relative;display:flex;align-items:center;gap:16px}
+.stick-men{position:absolute;bottom:-22px;left:calc(100% + 12px);display:flex;gap:14px;align-items:flex-end}
+.stick-man{color:var(--ink-dim)}
 .brand{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk';font-weight:700;letter-spacing:.02em}
 .brand-mark{width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 24px #7a5cff80}
 .nav nav{display:flex;gap:32px;font-size:14px;color:var(--ink-dim)}
@@ -57,8 +60,11 @@ img{max-width:100%;display:block}
 
 /* ---------- Hero ---------- */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 40px 80px;position:relative;max-width:var(--maxw);margin:0 auto}
-.hero-inner{max-width:980px}
-.hero-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(48px,9vw,128px);line-height:.95;letter-spacing:-.035em;margin:24px 0 32px}
+.hero-inner{display:flex;align-items:center;gap:80px;width:100%;max-width:var(--maxw)}
+.hero-text{flex:1;min-width:0}
+.hero-photo-wrap{flex-shrink:0;width:300px;border-radius:28px;padding:2px;background:var(--grad);box-shadow:0 40px 80px -20px #7a5cff60}
+.hero-photo{width:100%;border-radius:26px;display:block;object-fit:cover;aspect-ratio:4/5}
+.hero-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(42px,7vw,108px);line-height:.95;letter-spacing:-.035em;margin:24px 0 32px}
 .hero-title .line{display:block;overflow:hidden}
 .hero-sub{font-size:clamp(16px,1.4vw,20px);max-width:620px;color:var(--ink-dim);margin-bottom:42px}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
@@ -102,6 +108,9 @@ img{max-width:100%;display:block}
 .about-stats div{padding:18px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .about-stats strong{font-family:'Space Grotesk';font-size:26px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .about-stats span{color:var(--ink-dim);font-size:14px}
+.about-social{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.social-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid var(--line);border-radius:99px;font-family:'Space Grotesk';font-size:13px;color:var(--ink-dim);transition:all .3s;letter-spacing:.03em}
+.social-link:hover{color:var(--ink);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
 .about-education{border-top:1px solid var(--line);padding-top:60px}
 .about-education .eyebrow{margin-bottom:32px}
 .about-degrees{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -111,6 +120,10 @@ img{max-width:100%;display:block}
 .degree-badge{font-family:'Space Grotesk';font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:5px 12px;border-radius:99px;border:1px solid var(--line);color:var(--ink-dim);white-space:nowrap;flex-shrink:0}
 .degree-badge--active{border-color:var(--cyan);color:var(--cyan)}
 .degree-sub{color:var(--ink-dim);font-size:15px}
+.about-stack{border-top:1px solid var(--line);padding-top:60px;margin-top:60px}
+.about-stack .eyebrow{margin-bottom:24px}
+.stack-badges{display:flex;flex-wrap:wrap;gap:10px}
+.stack-badge{padding:9px 20px;border:1px solid var(--line);border-radius:99px;font-family:'Space Grotesk';font-size:13px;color:var(--ink-dim);background:rgba(255,255,255,.02);letter-spacing:.03em}
 
 /* ---------- Contact ---------- */
 .contact{text-align:center;padding-bottom:200px}
@@ -120,6 +133,8 @@ img{max-width:100%;display:block}
 .contact-email{display:inline-block;font-family:'Space Grotesk';font-size:clamp(20px,2.4vw,32px);padding:18px 36px;border:1px solid var(--line);border-radius:99px;transition:all .4s;position:relative}
 .contact-email:hover{border-color:transparent;background:var(--grad);color:#0a0814}
 .contact-loc{color:var(--ink-dim);margin-top:24px;font-size:14px;letter-spacing:.05em}
+.contact-promise{margin-top:18px;font-size:14px;color:var(--ink-dim)}
+.contact-promise strong{color:var(--cyan)}
 
 /* ---------- Footer ---------- */
 .footer{display:flex;justify-content:space-between;padding:30px 40px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-dim);font-family:'Space Grotesk'}
@@ -142,5 +157,7 @@ img{max-width:100%;display:block}
   .about-photo-wrap{max-width:200px}
   .about-degrees{grid-template-columns:1fr}
   .hero{padding:140px 22px 80px}
+  .hero-inner{flex-direction:column-reverse;gap:40px}
+  .hero-photo-wrap{width:180px}
   .footer{flex-direction:column;gap:8px;text-align:center}
 }

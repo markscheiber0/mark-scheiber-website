@@ -17,10 +17,42 @@
 
   <!-- Nav -->
   <header class="nav">
-    <a href="#home" class="brand">
-      <span class="brand-mark"></span>
-      <span>Mark Scheiber</span>
-    </a>
+    <div class="brand-group">
+      <a href="#home" class="brand">
+        <span class="brand-mark"></span>
+        <span>Mark Scheiber</span>
+      </a>
+      <div class="stick-men" aria-hidden="true">
+        <!-- Man 1: facing right -->
+        <svg id="stick-man-1" class="stick-man" viewBox="0 0 28 34" width="18" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="7" r="4.5"/>
+          <polygon points="10,5 19,4 6,0"/>
+          <line x1="14" y1="11.5" x2="14" y2="24"/>
+          <g id="sm1-l-leg"><line x1="14" y1="24" x2="8" y2="33"/></g>
+          <g id="sm1-r-leg"><line x1="14" y1="24" x2="20" y2="33"/></g>
+          <g id="sm1-l-arm"><line x1="14" y1="15" x2="7" y2="20"/></g>
+          <g id="sm1-sword-arm">
+            <line x1="14" y1="15" x2="22" y2="12"/>
+            <line x1="22" y1="12" x2="27" y2="4"/>
+            <line x1="20" y1="11" x2="24" y2="14"/>
+          </g>
+        </svg>
+        <!-- Man 2: facing left, mirrored -->
+        <svg id="stick-man-2" class="stick-man" viewBox="0 0 28 34" width="18" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="7" r="4.5"/>
+          <polygon points="18,5 9,4 22,0"/>
+          <line x1="14" y1="11.5" x2="14" y2="24"/>
+          <g id="sm2-l-leg"><line x1="14" y1="24" x2="8" y2="33"/></g>
+          <g id="sm2-r-leg"><line x1="14" y1="24" x2="20" y2="33"/></g>
+          <g id="sm2-r-arm"><line x1="14" y1="15" x2="21" y2="20"/></g>
+          <g id="sm2-sword-arm">
+            <line x1="14" y1="15" x2="6" y2="12"/>
+            <line x1="6" y1="12" x2="1" y2="4"/>
+            <line x1="8" y1="11" x2="4" y2="14"/>
+          </g>
+        </svg>
+      </div>
+    </div>
     <nav>
       <a href="#services">Services</a>
       <a href="#portfolio">Work</a>
@@ -32,16 +64,21 @@
   <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-inner">
-      <p class="eyebrow reveal">Boise, Idaho · AI Automation Studio</p>
-      <h1 class="hero-title">
-        <span class="line reveal">AI workflows &</span>
-        <span class="line reveal">automation built</span>
-        <span class="line reveal gradient-text">for your business.</span>
-      </h1>
-      <p class="hero-sub reveal">I'm Mark Scheiber. I build AI workflows, chatbots, and automation tools that save time and scale with your business — plus futuristic websites and mobile apps.</p>
-      <div class="hero-actions reveal">
-        <a href="mailto:mark.scheiber@scheiberintelligence.com?subject=New%20project%20inquiry&body=Hi%20Mark%2C%0A%0AI%27d%20like%20to%20start%20a%20project.%20Here%27s%20a%20bit%20about%20it%3A%0A%0A" class="btn btn-primary">Start a project</a>
-        <a href="#portfolio" class="btn btn-ghost">See the work →</a>
+      <div class="hero-text">
+        <p class="eyebrow reveal">Boise, Idaho · AI Automation Studio</p>
+        <h1 class="hero-title">
+          <span class="line reveal">AI workflows &</span>
+          <span class="line reveal">automation built</span>
+          <span class="line reveal gradient-text">for your business.</span>
+        </h1>
+        <p class="hero-sub reveal">I'm Mark Scheiber. I build AI workflows, chatbots, and automation tools that save time and scale with your business — plus futuristic websites and mobile apps.</p>
+        <div class="hero-actions reveal">
+          <a href="mailto:mark.scheiber@scheiberintelligence.com?subject=New%20project%20inquiry&body=Hi%20Mark%2C%0A%0AI%27d%20like%20to%20start%20a%20project.%20Here%27s%20a%20bit%20about%20it%3A%0A%0A" class="btn btn-primary">Start a project</a>
+          <a href="#portfolio" class="btn btn-ghost">See the work →</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <img src="Design/Scheiber,Mark_Headshot.png" alt="Mark Scheiber" class="hero-photo" />
       </div>
     </div>
     <div class="scroll-cue" aria-hidden="true"><span></span>scroll</div>
@@ -109,11 +146,15 @@
       </div>
       <div class="about-bio-body">
         <h3 class="about-name">Mark Scheiber</h3>
-        <p class="about-lead">Based in Boise, Idaho, I build AI automation, chatbots, and workflows that help businesses run smarter — alongside websites and mobile apps engineered to stand apart. I work directly with clients from first conversation to launch, no middlemen, no hand offs.</p>
+        <p class="about-lead">I'm pursuing a Master of Science in Artificial Intelligence at CU Boulder, not because I had to, but because I genuinely love this stuff. I've always been a builder at heart, and AI is the most powerful tool I've ever gotten to work with. So I started helping businesses actually use it: chatbots that handle inquiries overnight, workflows that cut hours of manual work, automation that just runs. Websites and mobile apps come with the territory, and I build those well too. Every client I work with gets me directly, first conversation to launch, no middlemen, no handoffs.</p>
         <div class="about-stats">
           <div><strong>1:1</strong><span>Direct collaboration, no middlemen</span></div>
           <div><strong>End to end</strong><span>Design, build, launch, support</span></div>
-          <div><strong>Boise, ID</strong><span>Working with clients everywhere</span></div>
+          <div><strong>Boise, ID</strong><span>US-based, available worldwide</span></div>
+        </div>
+        <div class="about-social">
+          <a href="https://www.linkedin.com/in/mark-scheiber" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn ↗</a>
+          <a href="https://github.com/markscheiber0" target="_blank" rel="noopener noreferrer" class="social-link">GitHub ↗</a>
         </div>
       </div>
     </div>
@@ -136,6 +177,18 @@
         </div>
       </div>
     </div>
+    <div class="about-stack">
+      <p class="eyebrow">Tools &amp; Platforms</p>
+      <div class="stack-badges">
+        <span class="stack-badge">n8n</span>
+        <span class="stack-badge">Zapier</span>
+        <span class="stack-badge">Claude</span>
+        <span class="stack-badge">Supabase</span>
+        <span class="stack-badge">Ollama</span>
+        <span class="stack-badge">GitHub</span>
+        <span class="stack-badge">+ more</span>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -145,7 +198,8 @@
       <h2 class="contact-title gradient-text">Let's build<br/>something bright.</h2>
       <p class="contact-sub">Have a project in mind? Send me a note and I'll get back to you within a day or two.</p>
       <a href="mailto:mark.scheiber@scheiberintelligence.com" class="contact-email">mark.scheiber@scheiberintelligence.com</a>
-      <p class="contact-loc">Boise, Idaho · Available worldwide</p>
+      <p class="contact-loc">Boise, Idaho — US-based, not outsourced, available worldwide.</p>
+      <p class="contact-promise"><strong>I personally respond to every inquiry within 24 hours.</strong></p>
     </div>
   </section>
 
